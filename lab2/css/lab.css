@@ -7,3 +7,19 @@
     border: solid 1px #888;
     background-color: #DDD8C4;
   }
+  h1{
+    color: lightblue;
+    font: size 130%;;
+  }
+  p{
+    text-indent: 55px;
+    margin-left: 30px;
+  }
+#content{
+background-color: aliceblue;
+width: auto;
+min-height: 400px;
+margin: 20px;
+border: dotted 20px powderblue;
+font-size: 30px;
+  }
