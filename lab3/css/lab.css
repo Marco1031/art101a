@@ -11,6 +11,7 @@
     width: 500px;
   }
   #fix{
-    width: 500px;
+    width: auto;
+    height: 300px;
   }
   
