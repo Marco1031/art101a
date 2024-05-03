@@ -36,7 +36,7 @@ function myFunction(param1, param2) {
       [ characters[i], characters[j]] = [characters[j],characters[i]];
     }
     for(let i =0; i < characters.length;i++){
-      if(i == 0 || i == temp+1){
+      if(i == 0 || characters[i-1]== ''){
         let charTemp = characters[i];
         charTemp = charTemp.toUpperCase();
         characters[i] = charTemp;
