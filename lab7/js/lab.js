@@ -52,7 +52,7 @@ function myFunction(param1, param2) {
     let sortedName = sortNames(userName);
     let anagramedName = anagram(sortedName);
     document.writeln("I fixed your name: ", sortedName, "</br>");
-    document.writeln('<div class="anagram">Here\'s your name as an anagram:<br>'+ anagramedName + '</div>');
+    document.writeln('<div class="anagram">Hello</span><br> My name is<br><span id = "name">' + anagramedName + '</div>');
   }
   
   // let's get this party started
