@@ -11,13 +11,13 @@
   .anagram {
     width: 400px;
     height: 301px;
-    background-color: rgb (240, 60, 50);
+    background-color: rgb(240, 60, 50);
     border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: start;
     text-align: center;
-    font-family: Arial, Sans-serif;
+    font-family: Arial, sans-serif;
     font-style: oblique;
     color: white;
     font-size: 40px;
@@ -27,7 +27,7 @@
     float: left;
     margin: 10px;
   }
-  
+
   #name{
     width: 400px;
     height: 158px;
