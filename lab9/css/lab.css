@@ -10,8 +10,8 @@ css:
   }
   
 .special{
-    background-color: rgb(119, 119, 214);
-    border: dotted 50px red;
+    background-color: rgb(103, 22, 178);
+    border: dotted 50px rgb(243, 48, 187);
     color: pink;
     font-weight: bold;
 }
