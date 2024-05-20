@@ -39,7 +39,7 @@ function sortNames(userName){
         const j = Math.floor(Math.random() * (i+1));
         [characters[i], characters[j]] = [characters[j], characters[i]]; 
     }
-    for(let i = 0; i < characters.length; i==){
+    for(let i = 0; i < characters.length; i++){
         if(i == 0 || characters[i-1] == ''){
             let charTemp = characters[i];
             charTemp = charTemp.toUppercase();
