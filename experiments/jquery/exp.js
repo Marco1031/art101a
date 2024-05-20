@@ -3,5 +3,5 @@ function getNameAndDisplay(){
     $('#title').html('Hello' + name);
 }
 // this is the code that makes the button do cool things
-// $("#my-button").click()
+ $("#my-button").click(getNameAndDisplay);
 
