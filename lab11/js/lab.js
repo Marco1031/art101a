@@ -42,7 +42,7 @@ function sortNames(userName){
     for(let i = 0; i < characters.length; i++){
         if(i == 0 || characters[i-1] == ''){
             let charTemp = characters[i];
-            charTemp = charTemp.toUppercase();
+            charTemp = charTemp.toUpperCase();
             characters[i] = charTemp;
             console.log(characters[i]);
         }
