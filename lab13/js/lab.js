@@ -6,39 +6,41 @@
 
 // Functions
 // This function generates numbers up to the specified limit and applies FizzBuzzBoom logic to each number
-function fizzBuzzBoom() {
-    let stop = parseInt($("#stop").val());
-    let factors = [
-        { factor: parseInt($("#factor1").val()), text: $("#text1").val() },
-        { factor: parseInt($("#factor2").val()), text: $("#text2").val() },
-        { factor: parseInt($("#factor3").val()), text: $("#text3").val() },
-        { factor: parseInt($("#factor4").val()), text: $("#text4").val() }
-    ];
+$(document).ready(function() {
+    function fizzBuzzBoom() {
+        let stop = 200;  // Set your desired stopping point
+        let factors = [
+            { factor: 3, text: "Fizz!" },
+            { factor: 5, text: "Buzz!" },
+            { factor: 7, text: "Boom!" }
+        ];
 
-    let outputDiv = $("#output");
-    outputDiv.empty(); // Clear previous output
+        let outputDiv = $("#output");
+        outputDiv.empty(); // Clear previous output
 
-    for (let num = 1; num <= stop; num++) {
-        let output = '';
-        factors.forEach(f => {
-            if (num % f.factor === 0) {
-                output += f.text;
+        for (let num = 1; num <= stop; num++) {
+            let output = '';
+            factors.forEach(f => {
+                if (num % f.factor === 0) {
+                    output += f.text;
+                }
+            });
+
+            if (output === '') {
+                output = num;
             }
-        });
 
-        if (output === '') {
-            output = num;
+            outputDiv.append("<p>" + num + " - " + output + "</p>");
         }
-
-        outputDiv.append("<p>" + output + "</p>");
     }
-}
 
-// Run the function when the button is clicked
-$("#run").click(fizzBuzzBoom);
+    // Run the function when the button is clicked
+    $("#run").click(fizzBuzzBoom);
 
-// Call the function initially to display default output
-fizzBuzzBoom();
+    // Call the function initially to display default output
+    fizzBuzzBoom();
+});
+
 // this is an example function and this comment tells what it doees and what parameters are passed to it.
 function myFunction(param1, param2) {
     // some code here
