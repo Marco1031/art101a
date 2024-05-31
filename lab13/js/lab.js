@@ -41,8 +41,6 @@ $("#run").click(fizzBuzzBoom);
 fizzBuzzBoom();
 
 
-  // let's get this party started
-  main();
-  
+ 
 
 
