@@ -20,36 +20,38 @@ function myFunction(param1, param2) {
   // let's get this party started
   main();
   // This function generates numbers from 1 to 200 and applies FizzBuzzBoom logic to each number
+// This function generates numbers up to the specified limit and applies FizzBuzzBoom logic to each number
 function fizzBuzzBoom() {
-    let oneLongString = ''; // Initialize an empty string to accumulate results
+    let stop = parseInt($("#stop").val());
+    let factors = [
+        { factor: parseInt($("#factor1").val()), text: $("#text1").val() },
+        { factor: parseInt($("#factor2").val()), text: $("#text2").val() },
+        { factor: parseInt($("#factor3").val()), text: $("#text3").val() },
+        { factor: parseInt($("#factor4").val()), text: $("#text4").val() }
+    ];
 
-    // Loop through numbers from 1 to 200
-    for (let num = 1; num <= 200; num++) {
-        let output = ''; // Initialize an empty string for the current number's output
+    let outputDiv = $("#output");
+    outputDiv.empty(); // Clear previous output
 
-        // Check for multiples of 3, 5, and 7
-        if (num % 3 === 0) {
-            output += 'Fizz';
-        }
-        if (num % 5 === 0) {
-            output += 'Buzz';
-        }
-        if (num % 7 === 0) {
-            output += 'Boom';
-        }
+    for (let num = 1; num <= stop; num++) {
+        let output = '';
+        factors.forEach(f => {
+            if (num % f.factor === 0) {
+                output += f.text;
+            }
+        });
 
-        // If the output string is empty, it means the number is not a multiple of 3, 5, or 7
         if (output === '') {
             output = num;
         }
 
-        // Append the current result to the long string with a line break
-        oneLongString += output + '<br>';
+        outputDiv.append("<p>" + output + "</p>");
     }
-
-    // Set the HTML content of the output div to the accumulated results
-    $('#output').html(oneLongString);
 }
 
-// Call the function to execute FizzBuzzBoom logic and display results
+// Run the function when the button is clicked
+$("#run").click(fizzBuzzBoom);
+
+// Call the function initially to display default output
 fizzBuzzBoom();
+
