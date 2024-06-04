@@ -1,52 +1,72 @@
 // index.js - purpose and description here
-// Author: Your Name
-// Date:
+// Author: Marco bernal
+// Date: june 3 2024
 
 // Constants
+maxFactors = 4;
+
+outputE1 = document.getElementById("output");
 
 // Functions
-// This function generates numbers up to the specified limit and applies FizzBuzzBoom logic to each number
-$(document).ready(function() {
-    function fizzBuzzBoom() {
-        let stop = 200;  // Set your desired stopping point
-        let factors = [
-            { factor: 3, text: "Fizz!" },
-            { factor: 5, text: "Buzz!" },
-            { factor: 7, text: "Boom!" }
-        ];
-
-        let outputDiv = $("#output");
-        outputDiv.empty(); // Clear previous output
-
-        for (let num = 1; num <= stop; num++) {
-            let output = '';
-            factors.forEach(f => {
-                if (num % f.factor === 0) {
-                    output += f.text;
-                }
-            });
-
-            if (output === '') {
-                output = num;
-            }
-
-            outputDiv.append("<p>" + num + " - " + output + "</p>");
+function outputToPage(str){
+    newE1 = document.createElement("p");
+    newE1.innerHtml = str;
+    outputE1.appendChild(newE1);
+}
+function getFactorObject() {
+    var factorObj = {};
+    for(var factor=0; factor<maxFactors; factor++) {
+        numId= "num" + factor;
+        textId= "text" + factor;
+        numValue = document.getElementById(numid).value;
+        textValue = document.getElementById(textId).value;
+        console.log(factor + ") num:", numValue, "text:", textValue;)
+        //if either value is blank , dont use it
+        if (numValue && textValue) {
+                factorObj[numValue] = textValue;
         }
     }
+    return factorObj;
+}
 
-    // Run the function when the button is clicked
-    $("#run").click(fizzBuzzBoom);
+function fizzBuzzBoom(maxNums, factorObj) {
+    for(var num=0; num<maxNums; num++) {
+        debugger;
+        var outString = "";
+        for (var factor in factorobj) {
+            if (num % factor == 0){
+                outString += factorObj [factor];
+            }
+        }
+        if (outString) {
+            outString = " - " + outString + "!";
+        }
+        outputToPage(num.toString() + outString)
+    }
+}
 
-    // Call the function initially to display default output
-    fizzBuzzBoom();
-});
+function reportError(str) {
+    outputE1.innerHtml = "<div class= 'error'> " + str + "</div>";
+}
+document.getElementById("sumbit").addEventListner("click", function() {
+    var max = document.getElementById("max").value;
+    console.log("max" , max)
+    if(! max) {
+        reportError("you must provide a maximum");
+        return;
+    }
+    var factorObj = getFactorObject();
+    console.log("factorObj:", factorObj);
+    if (Object.keys(factorObj).length === 0) {
+        reportError("you must provide at least one factor and text");
+        return;
+    }
+    // clear error if there is one
+    outputE1.innerHtml = "";
+    fizzBuzzBoom(max, factorObj);
+    outputE1.classlist.add("cols");
+})
 
-// this is an example function and this comment tells what it doees and what parameters are passed to it.
-function myFunction(param1, param2) {
-    // some code here
-    // return results;
-  }
-  
   function main() {
     console.log("Main function started.");
     // the code that makes everything happen

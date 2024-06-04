@@ -38,12 +38,37 @@
 					<h2>Reflection</h2>
 					<p>Put your reflections about this assignment here. How did it go? What kind of energy did you put into the assignment? </p>
 			</div>
-
+            <div id="input">
+                Where Should we stop <input type="number" min="0" max="1000" id="max"><br>
+                Which Factors Should Print What?<br>
+                <table>
+                    <tbody><tr>
+                        <th>Factor</th>
+                        <th>Prints what?</th>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="23" id="num0"></td>
+                        <td><input type="text" id="text0"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="23" id="num1"></td>
+                        <td><input type="text" id="text1"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="23" id="num2"></td>
+                        <td><input type="text" id="text2"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" min="0" max="23" id="num3"></td>
+                        <td><input type="text" id="text3"></td>
+                    </tr>
+                </tbody></table>
+            </div>
 			<div class="minor-section">
 					<h2>Results</h2>
 					<div id="output"></div>
-                    <button id="run">Run</button>
-                    <script src="./js/lab.js"></script>
+                    <button id="submit">Run</button>
+                    
 			</div>
 		</section>
 		<nav id="links">
