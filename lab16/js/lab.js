@@ -8,9 +8,10 @@ $(document).ready(function() {
 
     function fetchComic(comicNum) {
         let url = comicNum ? `https://xkcd.com/${comicNum}/info.0.json` : 'https://xkcd.com/info.0.json';
-        
+        let proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+
         $.ajax({
-            url: url,
+            url: proxyUrl + url,
             type: "GET",
             dataType: "json",
             success: function(data) {
@@ -41,3 +42,4 @@ $(document).ready(function() {
         fetchComic(currentComic + 1);
     });
 });
+
