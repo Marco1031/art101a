@@ -1,45 +1,46 @@
-// author: Marco Bernal
-// date: June 7, 2024
-// lab 16 json and APIs
-
-
-$(document).ready(function() {
-    let currentComic = 0;
-
-    function fetchComic(comicNum) {
-        let url = comicNum ? `https://xkcd.com/${comicNum}/info.0.json` : 'https://xkcd.com/info.0.json';
-        let proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-
-        $.ajax({
-            url: proxyUrl + url,
-            type: "GET",
-            dataType: "json",
-            success: function(data) {
-                currentComic = data.num;
-                $('#output').html(`
-                    <h3>${data.title}</h3>
-                    <img src="${data.img}" alt="${data.alt}" title="${data.alt}">
-                    <p>${data.alt}</p>
-                `);
-            },
-            error: function (jqXHR, textStatus, errorThrown) { 
-                console.log("Error:", textStatus, errorThrown);
-            }
-        });
+// index.js - Working with your partner, experiment with jQuery and AJAX.
+// Author: Noah Walker
+// Date: June 9, 2024
+var comicObj = {
+    num: 1
+  };
+  
+  $.ajax({
+    url: "https://xkcd.com/info.0.json",
+    type: "GET",
+    dataType: "json",
+    success: function(data) {
+        console.log(data);
+        $('#comicTitle').text(data.title);
+        $('#comicImage').attr('src', data.img).attr('alt', data.alt).attr('title', data.alt);
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
+        console.log("Error:", textStatus, errorThrown);
     }
-
-    // Fetch latest comic on page load
-    fetchComic();
-
-    // Event listeners for navigation buttons
-    $('#prev').click(function() {
-        if (currentComic > 1) {
-            fetchComic(currentComic - 1);
+  });
+  
+  function getAndPutData(comicNum) {
+    $.ajax({
+        url: "https://xkcd.com/" + comicNum + "/info.0.json",
+        type: "GET",
+        dataType: "json",
+        success: function(data) {
+            $('#comicTitle').text(data.title);
+            $('#comicImage').attr('src', data.img).attr('alt', data.alt).attr('title', data.alt);
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log("Error:", textStatus, errorThrown);
         }
     });
-
-    $('#next').click(function() {
-        fetchComic(currentComic + 1);
-    });
-});
+  }
+  
+  $('#previous').click(function() {
+    comicObj.num -= 1;
+    getAndPutData(comicObj.num);
+  });
+  
+  $('#next').click(function() {
+    comicObj.num += 1;
+    getAndPutData(comicObj.num);
+  });
 
